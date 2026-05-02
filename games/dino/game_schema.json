@@ -1,0 +1,88 @@
+{
+  "title": "Orchestra Generated Casual Game Spec",
+  "source_idea": "우주 공룡 게임",
+  "agent_mode": "ollama",
+  "agent_preset": "balanced",
+  "project_instructions": "",
+  "pipeline_progress": {
+    "preset": "balanced",
+    "overall_percent": 100,
+    "steps": [
+      {
+        "id": "draft",
+        "title": "Designer drafts concept",
+        "agent_id": "creative_designer",
+        "task": "draft",
+        "status": "completed",
+        "progress_percent": 17,
+        "schedule_label": "Start"
+      },
+      {
+        "id": "review",
+        "title": "Reviewer pressure-tests scope",
+        "agent_id": "technical_reviewer",
+        "task": "review",
+        "status": "completed",
+        "progress_percent": 33,
+        "schedule_label": "After draft"
+      },
+      {
+        "id": "ceo_review",
+        "title": "CEO challenges market clarity",
+        "agent_id": "product_ceo",
+        "task": "ceo_review",
+        "status": "completed",
+        "progress_percent": 50,
+        "schedule_label": "After review"
+      },
+      {
+        "id": "intervention",
+        "title": "Human intervention checkpoint",
+        "agent_id": "human_operator",
+        "task": "intervention",
+        "status": "skipped",
+        "progress_percent": 67,
+        "schedule_label": "After CEO review"
+      },
+      {
+        "id": "revision",
+        "title": "Designer revises concept",
+        "agent_id": "creative_designer",
+        "task": "revision",
+        "status": "completed",
+        "progress_percent": 83,
+        "schedule_label": "After checkpoint"
+      },
+      {
+        "id": "final_spec",
+        "title": "Spec Writer produces final spec",
+        "agent_id": "spec_writer",
+        "task": "final_spec",
+        "status": "completed",
+        "progress_percent": 100,
+        "schedule_label": "Finish"
+      }
+    ]
+  },
+  "session_target": "short",
+  "human_intervention": "",
+  "core_loop": [
+    "merge_items",
+    "complete_goal",
+    "grant_reward",
+    "advance_stage"
+  ],
+  "excluded_scope": [
+    "live_ops",
+    "complex_economy",
+    "social_features"
+  ],
+  "artifacts": [
+    "round_1_design.md",
+    "round_2_revision.md",
+    "final_game_spec.md",
+    "game_schema.json",
+    "message_log.json",
+    "run_progress.json"
+  ]
+}
