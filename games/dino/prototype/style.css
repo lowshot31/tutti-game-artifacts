@@ -1,0 +1,166 @@
+:root {
+  --bg: #0f1117;
+  --panel: #171b25;
+  --panel-edge: #2b3140;
+  --text: #f5f7fb;
+  --muted: #a6afc3;
+  --accent: #ff6f61;
+  --accent-2: #ffd166;
+  --ok: #56d364;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(255,111,97,0.18), transparent 30%),
+    linear-gradient(180deg, #0b0d13 0%, var(--bg) 100%);
+}
+
+.game-shell {
+  width: min(920px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0 40px;
+}
+
+.game-header h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.eyebrow, .summary, .hint, .notes p, .hud span {
+  color: var(--muted);
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.hud div, .notes, .board {
+  background: rgba(23, 27, 37, 0.92);
+  border: 1px solid var(--panel-edge);
+  border-radius: 8px;
+}
+
+.hud div {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hud strong {
+  font-size: 1.3rem;
+}
+
+.board {
+  position: relative;
+  padding: 16px;
+}
+
+.primary {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #1b120d;
+  font-weight: 700;
+  padding: 12px 18px;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+.lane {
+  position: relative;
+  height: 420px;
+  border-radius: 8px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), transparent 18%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+.lane::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 54px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 209, 102, 0.8);
+  box-shadow: 0 0 18px rgba(255, 209, 102, 0.45);
+}
+
+.beat {
+  position: absolute;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  margin-left: -36px;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff3d6 0%, #ffd166 35%, #ff6f61 100%);
+  color: #24160e;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}
+
+.notes {
+  margin-top: 18px;
+  padding: 16px;
+}
+
+@media (max-width: 640px) {
+  .game-shell { width: calc(100vw - 20px); }
+  .hud { grid-template-columns: 1fr; }
+  .lane { height: 360px; }
+}
+
+/* Ollama가 생성하는 모든 게임 요소에 기본 스타일 적용 */
+.lane > * {
+  position: absolute;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #1b120d;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transition: transform 0.12s, opacity 0.15s;
+  user-select: none;
+  border: none;
+}
+
+.lane > *:hover {
+  transform: scale(1.15);
+  filter: brightness(1.1);
+}
+
+.lane > *:active {
+  transform: scale(0.85);
+  opacity: 0.7;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes fall {
+  from { top: -60px; }
+  to { top: 420px; }
+}
