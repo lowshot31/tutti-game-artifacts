@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>우주 공룡 게임</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="game-header">
+      <p class="eyebrow">Orchestra Playable Prototype</p>
+      <h1>우주 공룡 게임</h1>
+      <p class="summary">우주 공룡 게임</p>
+    </header>
+    <section class="hud">
+      <div><span>Score</span><strong id="score">0</strong></div>
+      <div><span>Time</span><strong id="time">60</strong></div>
+      <div><span>Best</span><strong id="best">0</strong></div>
+    </section>
+    <section class="board">
+      <button id="startButton" class="primary">Start Run</button>
+      <div id="lane" class="lane" aria-live="polite"></div>
+    </section>
+    <section class="notes">
+      <h2>Run Notes</h2>
+      <p id="specNote">Status: READY Context: 유저가 제시한 "우주 공룡 게임"은 우주 공간에서 공룡을 타고 활동하는 스타일의 게임으로, 장르 및 메커니즘에 대한 구체적 설명이 부족합니다. Key Decisions: 1. **장르 결정**: "스케일러블 캐주얼 게임"으로 정의 (공룡 탑승 + 자원 수집 + 간단한 전투). 2. **플레이어 진행 방식**: 우주 공간을 이동하며 자원을 수집하고, 공룡을 강화해 적을 물리치는 루프.</p>
+      <p class="hint">Tap the glowing beats before they cross the hit line. Miss too many and the minute slips away.</p>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
